@@ -10,8 +10,9 @@ const { User, Cart, Category, Product, Review } = require('../models');
 // Get cart (require login session)
 
 // Get user dashboard (require login session)
-    // purchase history
-    // posted reviews
+    // Include:
+        // purchase history (need new model)
+        // posted reviews
 
 
 // Log in
