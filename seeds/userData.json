@@ -1,0 +1,17 @@
+[
+    {
+        "name": "shinyRaccoon",
+        "email": "Ariel@fakemail.com",
+        "password": "password123"
+    },
+    {
+        "name": "doubtfulOrangutan",
+        "email": "Frank@fakemail.com",
+        "password": "password123"
+    },
+    {
+        "name": "yawningIguana",
+        "email": "Kelly@fakemail.com",
+        "password": "password123"
+    }
+]
