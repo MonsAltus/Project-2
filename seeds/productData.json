@@ -2,6 +2,7 @@
     {
         "product_name": "prod1",
         "product_desc": "prod1desc",
+        "image": "",
         "price": 20,
         "stock": 10,
         "category_id": 2
@@ -9,6 +10,7 @@
     {
         "product_name": "prod2",
         "product_desc": "prod2desc",
+        "image": "",
         "price": 21,
         "stock": 10,
         "category_id": 3
@@ -16,6 +18,7 @@
     {
         "product_name": "prod3",
         "product_desc": "prod3desc",
+        "image": "",
         "price": 22,
         "stock": 10,
         "category_id": 4
@@ -23,6 +26,7 @@
     {
         "product_name": "prod4",
         "product_desc": "prod4desc",
+        "image": "",
         "price": 23,
         "stock": 10,
         "category_id": 5
@@ -30,6 +34,7 @@
     {
         "product_name": "prod5",
         "product_desc": "prod5desc",
+        "image": "",
         "price": 24,
         "stock": 10,
         "category_id": 6
@@ -37,6 +42,7 @@
     {
         "product_name": "prod6",
         "product_desc": "prod6desc",
+        "image": "",
         "price": 25,
         "stock": 10,
         "category_id": 1
