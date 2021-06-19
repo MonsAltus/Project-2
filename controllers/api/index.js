@@ -12,6 +12,3 @@ router.use('/products', productRoutes);
 router.use('/reviews', reviewRoutes);
 
 module.exports = router;
-
-
-User, Cart, Category, Product, Review 
