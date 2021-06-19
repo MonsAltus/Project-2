@@ -48,3 +48,5 @@ Product.hasMany(Review, {
 Review.belongsTo(Product, {
     foreignKey: 'product_id',
 });
+
+module.exports = { User, Cart, Category, Product, Review };
