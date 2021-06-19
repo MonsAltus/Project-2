@@ -1,26 +1,26 @@
 [
     {
-        "content": "",
-        "date_created": "",
-        "product_id": "",
-        "user_id": ""
+        "content": "it's meh",
+        "date_created": "04/12/2014",
+        "product_id": 3,
+        "user_id": 2
     },
     {
-        "content": "",
-        "date_created": "",
-        "product_id": "",
-        "user_id": ""
+        "content": "It's great",
+        "date_created": "04/12/2014",
+        "product_id": 5,
+        "user_id": 1
     },
     {
-        "content": "",
-        "date_created": "",
-        "product_id": "",
-        "user_id": ""
+        "content": "It's bad",
+        "date_created": "04/15/2014",
+        "product_id": 5,
+        "user_id": 3
     },
     {
-        "content": "",
-        "date_created": "",
-        "product_id": "",
-        "user_id": ""
+        "content": "It's super",
+        "date_created": "04/12/2014",
+        "product_id": 3,
+        "user_id": 3
     }
 ]

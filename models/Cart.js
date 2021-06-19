@@ -11,13 +11,20 @@ Cart.init(
             allowNull: false,
             autoIncrement: true
         },
-        product_id: {
+        // product_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     references: {
+        //         model: 'product',
+        //         key: 'id'
+        //     }
+        // },
+        user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
-                model: 'product',
+                model: 'user',
                 key: 'id'
-            }
+            },
         },
     },
     {
