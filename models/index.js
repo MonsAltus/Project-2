@@ -15,24 +15,36 @@ Cart.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
+// Each Cart has many products
+Cart.hasMany(Product, {
+    foreignKey: 'product_id',
+    onDelete: 'CASCADE',
+});
+
+// ?????
+// Each product can  to many carts.
+Product.hasMany(Cart, {
+    foreignKey: 'product_id',
+});
+
 // Each Category has many Products.
 Category.hasMany(Product, {
-    foreignKey: 'id',
+    foreignKey: 'category_id',
     onDelete: 'CASCADE',
 });
 
 // Products belong to a Category.
 Product.belongsTo(Category, {
-    foreignKey: 'id',
+    foreignKey: 'category_id',
 });
 
 // Each Product has many Reviews.
 Product.hasMany(Review, {
-    foreignKey: 'id',
+    foreignKey: 'product_id',
     onDelete: 'CASCADE',
 });
 
 // Reviews belong to a Category.
 Review.belongsTo(Product, {
-    foreignKey: 'id',
+    foreignKey: 'product_id',
 });
