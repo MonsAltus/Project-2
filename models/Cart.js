@@ -11,37 +11,21 @@ Cart.init(
             allowNull: false,
             autoIncrement: true
         },
-        Product_id : {
+        product_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Product',
+                model: 'product',
                 key: 'id'
             }
         },
-        Product_Name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            references: {
-                model: 'category',
-                key: 'id'
-            }
-        },
-        Price: {
-            type: DataTypes.DECIMAL,
-            allowNull: false,
-            references: {
-                model: 'Product',
-                key: 'id'
-            }
-            
-        }
     },
     {
-    sequelize,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'Cart'
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'cart',
     }
 );
 
