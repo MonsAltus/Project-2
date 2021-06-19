@@ -4,35 +4,31 @@ const Category = require('./Category');
 const Product = require('./Product');
 const Review = require('./Review');
 
-// Each User has one cart.
-User.hasOne(Cart, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE',
-});
 
 // Cart belongs to User.
 Cart.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-// Each Category has many Products.
+Cart.belongsToMany(Product, { through: "rel" });
+Product.belongsToMany(Cart, { through: "rel" });
+
+
 Category.hasMany(Product, {
-    foreignKey: 'id',
-    onDelete: 'CASCADE',
+    foreignKey: 'category_id'
 });
 
-// Products belong to a Category.
-Product.belongsTo(Category, {
-    foreignKey: 'id',
-});
-
-// Each Product has many Reviews.
-Product.hasMany(Review, {
-    foreignKey: 'id',
-    onDelete: 'CASCADE',
-});
-
-// Reviews belong to a Category.
+// Reviews belong to a Product.
 Review.belongsTo(Product, {
-    foreignKey: 'id',
+    foreignKey: 'product_id',
 });
+
+// Each Cart has many products
+// Product.belongsTo(Cart, {})
+// Cart.hasMany(Product, {
+//     foreignKey: 'product_id',
+//     onDelete: 'CASCADE',
+// });
+
+
+module.exports = { User, Cart, Category, Product, Review };
