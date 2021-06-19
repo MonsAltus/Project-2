@@ -6,9 +6,9 @@ const withAuth = require('../../utils/auth');
 router.post('/', withAuth, async (req, res) => {
     try{
         const newReview = await Review.create({
-            ...req.body,
-            user_id: req.session.user_id
-            // Product id???
+            content: req.body.review,
+            user_id: req.session.user_id,
+            product_id: req.body.productId
         });
         res.status(200).json(newReview)
     } catch (err) {
@@ -28,7 +28,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         if(!newReview) {
             res.status(404).json({ message: 'No Review found with this id.'});
             return;
-        }
+        };
         res.status(200).json(newReview);
     } catch (err) {
         res.status(400).json(err);
