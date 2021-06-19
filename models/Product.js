@@ -15,6 +15,10 @@ Product.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    product_desc: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
@@ -38,6 +42,13 @@ Product.init(
         key: 'id'
       }
     },
+    // cart_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'cart',
+    //     key: 'id'
+    //   }
+    // }
   },
   {
     sequelize,
