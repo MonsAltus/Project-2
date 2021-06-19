@@ -4,77 +4,74 @@ const { User, Cart, Category, Product, Review } = require('../models');
 const withAuth = require('../utils/Auth');
 
 // Get all products for homepage
-
 router.get('/', async (req, res) => {
-    try {
-        const ProductsData = await Product.findAll({
-            include: [
-                {
-                  model: Product,
-                  attributes: ['name'],
-                },
-            ],
-        });
+  try {
+    const ProductData = await Product.findAll({
+      include: [
+        { model: Product, attributes: ['name', 'description', 'image', 'price']},
+      ],
+    });
 
-        const Products = ProductData.map((project) => product.get({ plain: true }));
-        res.render('homepage', { 
-            products, 
-            logged_in: req.session.logged_in 
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
+    const products = ProductData.map((data) => data.get({ plain: true }));
+      res.render('homepage', { 
+        products, 
+        logged_in: req.session.logged_in 
+      });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
-  
+
 
 // Get product by ID
-
-router.get('/Product/:id', async (req, res) => {
-    try {
-      const ProductData = await Product.findByPk(req.params.id, {
-        include: [
-          {
-            model: Product,
-            attributes: ['name'],
-          },
-        ],
-      });
+router.get('/product/:id', async (req, res) => {
+  try {
+    const ProductData = await Product.findByPk(req.params.id, {
+      include: [
+        { model: Product, attributes: ['name', 'description', 'image', 'price']},
+        { model: Review, attributes: ['content', 'date_created'],
+          // where: {product_id: req.params.id}
+        }
+      ],
+    });
   
-      const product = PoductData.get({ plain: true });
-      res.render('Product', {
-        ...project,
+    const products = ProductData.get({ plain: true });
+      res.render('product', {
+        products,
         logged_in: req.session.logged_in
       });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-  
-
-// Get cart (require login session)
-router.get('/cart', withAuth, async (req, res) => {
-    try {
-        const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-            include: [{ model: Project }],
-        });
-        const user = userData.get({ plain: true });
-        res.render('profile', {
-            ...user,
-            logged_in: true
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
+// Attributes???
+// Get cart (require login session)
+router.get('/cart', withAuth, async (req, res) => {
+  try {
+    const cartData = await Cart.findOne({where: {user_id: req.session.user_id}}, {
+      include: [{model: Cart}] 
+      // Attributes???
+    });
+
+    const cart = cartData.get({ plain: true });
+      res.render('cart', {
+        cart,
+        logged_in: true
+      });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Use dashboard to display users reviews?
 // Get user dashboard (require login session)
 router.get('/profile', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
-        include: [{ model: Product }],
+        // include: [{ model: Product }],
       });
   
       const user = userData.get({ plain: true });
@@ -100,6 +97,5 @@ router.get('/login', (req,res) => {
     };
     res.render('login');
 });
-    
 
 module.exports = router;

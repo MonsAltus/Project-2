@@ -11,11 +11,11 @@ Product.init(
       primaryKey: true,
       autoIncrement: true
     },
-    product_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    product_desc: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
     },
