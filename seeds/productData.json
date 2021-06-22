@@ -2,7 +2,7 @@
     {
         "name": "Economy Desktop",
         "description": "An economically priced desktop PC for basic needs.",
-        "image": "",
+        "image": "public/images/economy-desktop.jpg",
         "price": 600,
         "stock": 10,
         "category_id": 1
@@ -10,7 +10,7 @@
     {
         "name": "Performance Desktop",
         "description": "A high performance desktop PC.",
-        "image": "",
+        "image": "public/images/performance-desktop.jpg",
         "price": 1200,
         "stock": 10,
         "category_id": 1
@@ -18,7 +18,7 @@
     {
         "name": "Compact PC",
         "description": "Small form factor PC",
-        "image": "",
+        "image": "public/images/compact-pc.jpg",
         "price": 700,
         "stock": 10,
         "category_id": 1
@@ -26,7 +26,7 @@
     {
         "name": "22 Inch Display",
         "description": "A basic 22-inch monitor.",
-        "image": "",
+        "image": "public/images/22-inch-display.jpg",
         "price": 100,
         "stock": 10,
         "category_id": 2
@@ -34,7 +34,7 @@
     {
         "name": "28 Inch Display",
         "description": "An impressive 28-inch monitor.",
-        "image": "",
+        "image": "public/images/28-inch-display.jpg",
         "price": 180,
         "stock": 10,
         "category_id": 2
@@ -42,7 +42,7 @@
     {
         "name": "Audio Speakers",
         "description": "A 2.1 channel speaker system including a subwoofer.",
-        "image": "",
+        "image": "public/images/audio-speakers.jpg",
         "price": 40,
         "stock": 10,
         "category_id": 3
@@ -50,15 +50,15 @@
     {
         "name": "Wireless keyboard",
         "description": "A basic wireless keyboard. Includes Blutooth dongle.",
-        "image": "",
+        "image": "public/images/basic-wireless-keyboard.jpg",
         "price": 25,
         "stock": 10,
         "category_id": 4
     },
     {
         "name": "USB hub",
-        "description": "A compact USB hub with 5 ports.",
-        "image": "",
+        "description": "A compact USB hub with 4 ports.",
+        "image": "public/images/basic-usb-hub.jpg",
         "price": 20,
         "stock": 10,
         "category_id": 5
@@ -66,7 +66,7 @@
     {
         "name": "1TB External HDD",
         "description": "An external hard disk with a 1TB capacity.",
-        "image": "",
+        "image": "public/images/1tb-external-hub.jpg",
         "price": 150,
         "stock": 10,
         "category_id": 6
@@ -74,7 +74,7 @@
     {
         "name": "Modem",
         "description": "A cable modem",
-        "image": "",
+        "image": "public/images/modem.jpg",
         "price": 60,
         "stock": 10,
         "category_id": 7
