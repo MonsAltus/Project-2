@@ -11,7 +11,7 @@ Cart.init(
             allowNull: false,
             autoIncrement: true
         },
-        // product_id: {
+         //product_id: {
         //     type: DataTypes.INTEGER,
         //     allowNull: false,
         //     references: {

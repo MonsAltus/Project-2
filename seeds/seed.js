@@ -1,10 +1,12 @@
 const sequelize = require('../config/connection');
-const { User, Category, Product, Review } = require('../models');
+const { User, Category, Product, Cart, ProductCart , Review } = require('../models');
 
 const userData = require('./userData.json');
 const categoryData = require('./categoryData.json');
 const productData = require('./productData.json');
 const reviewData = require('./reviewData.json');
+const cartData = require('./cartData.json');
+const productCartData = require('./productCartData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -21,6 +23,13 @@ const seedDatabase = async () => {
     await Product.bulkCreate(productData, {
         returning: true,
     });
+    await Cart.bulkCreate(cartData, {
+        returning: true,
+    });
+    await ProductCart.bulkCreate(productCartData, {
+        returning: true,
+    });
+
 
     await Review.bulkCreate(reviewData, {
         returning: true,
