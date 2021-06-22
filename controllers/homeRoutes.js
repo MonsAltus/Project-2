@@ -6,14 +6,16 @@ const withAuth = require('../utils/Auth');
 // Get all products for homepage
 router.get('/', async (req, res) => {
   try {
-    const ProductData = await Product.findAll({
-      include: [Category]
-      //  { model: Product, attributes: ['name', 'description', 'image', 'price']},
-      //],
+    const productData = await Product.findAll({
+      include: [ Category
+        // { model: Category, attributes: ['name', 'description'],
+        //   include: { model: Product, attributes: ['name', 'description', 'image', 'price']},
+        // }
+      ],
     });
 
-    const products = ProductData.map((data) => data.get({ plain: true }));
-    console.log(products);
+    const products = productData.map((data) => data.get({ plain: true }));
+
       res.render('homepage', { 
         products, 
         logged_in: req.session.logged_in 
@@ -28,8 +30,9 @@ router.get('/category/:id', async (req, res) => {
   try {
     const categoryData = await Category.findByPk(req.params.id, {
       include: [
-        { model: Category, attributes: ['name', 'description']},
-        { model: Product, attributes: ['name', 'description', 'image', 'price']},
+        { model: Category, attributes: ['name', 'description'],
+          include: { model: Product, attributes: ['name', 'description', 'image', 'price']},
+        }
       ],
     });
   
@@ -46,20 +49,12 @@ router.get('/category/:id', async (req, res) => {
 // Get product by ID
 router.get('/product/:id', async (req, res) => {
   try {
-<<<<<<< HEAD
-    const ProductData = await Product.findByPk(req.params.id, {
-      include: [Product]
-        //{ model: Product, attributes: ['name', 'description', 'image', 'price'],include: {model: Review, attributes: ['content', 'date_created']},
-        
-=======
     const productData = await Product.findByPk(req.params.id, {
       include: [
-        { model: Product, attributes: ['name', 'description', 'image', 'price']},
-        { model: Review, attributes: ['content', 'date_created'],
->>>>>>> main
-          // where: {product_id: req.params.id}
-       // }
-      //],
+        { model: Product, attributes: ['name', 'description', 'image', 'price'],
+          include: { model: Review, attributes: ['content', 'date_created']},
+        }
+      ],
     });
   
     const products = productData.get({ plain: true });
@@ -97,8 +92,9 @@ router.get('/profile', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
-        //attributes: { exclude: ['password'] },
-        include: [User],
+        include: [
+          {model: User, attributes: { exclude: ['password']}},
+        ],
       });
   
       const user = userData.get({ plain: true });
