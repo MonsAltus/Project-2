@@ -1,50 +1,82 @@
 [
     {
-        "product_name": "prod1",
-        "product_desc": "prod1desc",
+        "product_name": "Economy Desktop",
+        "product_desc": "An economically priced desktop PC for basic needs.",
         "image": "",
-        "price": 20,
+        "price": 600,
+        "stock": 10,
+        "category_id": 1
+    },
+    {
+        "product_name": "Performance Desktop",
+        "product_desc": "A high performance desktop PC.",
+        "image": "",
+        "price": 1200,
+        "stock": 10,
+        "category_id": 1
+    },
+    {
+        "product_name": "Compact PC",
+        "product_desc": "Small form factor PC",
+        "image": "",
+        "price": 700,
+        "stock": 10,
+        "category_id": 1
+    },
+    {
+        "product_name": "22 Inch Display",
+        "product_desc": "A basic 22-inch monitor.",
+        "image": "",
+        "price": 100,
         "stock": 10,
         "category_id": 2
     },
     {
-        "product_name": "prod2",
-        "product_desc": "prod2desc",
+        "product_name": "28 Inch Display",
+        "product_desc": "An impressive 28-inch monitor.",
         "image": "",
-        "price": 21,
+        "price": 180,
+        "stock": 10,
+        "category_id": 2
+    },
+    {
+        "product_name": "Audio Speakers",
+        "product_desc": "A 2.1 channel speaker system including a subwoofer.",
+        "image": "",
+        "price": 40,
         "stock": 10,
         "category_id": 3
     },
     {
-        "product_name": "prod3",
-        "product_desc": "prod3desc",
+        "product_name": "Wireless keyboard",
+        "product_desc": "A basic wireless keyboard. Includes Blutooth dongle.",
         "image": "",
-        "price": 22,
+        "price": 25,
         "stock": 10,
         "category_id": 4
     },
     {
-        "product_name": "prod4",
-        "product_desc": "prod4desc",
+        "product_name": "USB hub",
+        "product_desc": "A compact USB hub with 5 ports.",
         "image": "",
-        "price": 23,
+        "price": 20,
         "stock": 10,
         "category_id": 5
     },
     {
-        "product_name": "prod5",
-        "product_desc": "prod5desc",
+        "product_name": "1TB External HDD",
+        "product_desc": "An external hard disk with a 1TB capacity.",
         "image": "",
-        "price": 24,
+        "price": 150,
         "stock": 10,
         "category_id": 6
     },
     {
-        "product_name": "prod6",
-        "product_desc": "prod6desc",
+        "product_name": "Modem",
+        "product_desc": "A cable modem",
         "image": "",
-        "price": 25,
+        "price": 60,
         "stock": 10,
-        "category_id": 1
+        "category_id": 7
     }
 ]

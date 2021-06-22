@@ -1,26 +1,30 @@
 [
 {
-    "name": "cat1",
-    "description": "cat1desc"
+    "name": "Computers",
+    "description": "Desktops and compact PCs"
 },
 {
-    "name": "cat2",
-    "description": "cat2desc"
+    "name": "Monitors",
+    "description": "Display devices."
 },
 {
-    "name": "cat3",
-    "description": "cat3desc"
+    "name": "Audio and Video",
+    "description": "Speakers, headphones, microphones, and webcams."
 },
 {
-    "name": "cat4",
-    "description": "cat4desc"
+    "name": "Input devices",
+    "description": "Keyboards, mice, touchpads, and gaming controllers."
 },
 {
-    "name": "cat5",
-    "description": "cat5desc"
+    "name": "Accesories",
+    "description": "USB hubs, wristpads, mousepads."
 },
 {
-    "name": "cat6",
-    "description": "cat6desc"
+    "name": "Storage",
+    "description": "USB and External hard drives."
+},
+{
+    "name": "Networking",
+    "description": "Modems and routers"
 }
 ]
