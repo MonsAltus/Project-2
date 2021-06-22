@@ -57,7 +57,7 @@
     },
     {
         "name": "USB hub",
-        "description": "A compact USB hub with 5 ports.",
+        "description": "A compact USB hub with 4 ports.",
         "image": "public/images/basic-usb-hub.jpg",
         "price": 20,
         "stock": 10,
