@@ -23,20 +23,46 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get products by Category
+router.get('/category/:id', async (req, res) => {
+  try {
+    const categoryData = await Category.findByPk(req.params.id, {
+      include: [
+        { model: Category, attributes: ['name', 'description']},
+        { model: Product, attributes: ['name', 'description', 'image', 'price']},
+      ],
+    });
+  
+    const categories = categoryData.get({ plain: true });
+      res.render('category', {
+        categories,
+        logged_in: req.session.logged_in
+      });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // Get product by ID
 router.get('/product/:id', async (req, res) => {
   try {
+<<<<<<< HEAD
     const ProductData = await Product.findByPk(req.params.id, {
       include: [Product]
         //{ model: Product, attributes: ['name', 'description', 'image', 'price'],include: {model: Review, attributes: ['content', 'date_created']},
         
+=======
+    const productData = await Product.findByPk(req.params.id, {
+      include: [
+        { model: Product, attributes: ['name', 'description', 'image', 'price']},
+        { model: Review, attributes: ['content', 'date_created'],
+>>>>>>> main
           // where: {product_id: req.params.id}
        // }
       //],
     });
   
-    const products = ProductData.get({ plain: true });
+    const products = productData.get({ plain: true });
       res.render('product', {
         products,
         logged_in: req.session.logged_in
