@@ -46,17 +46,10 @@ router.get('/category/:id', async (req, res) => {
 // Get product by ID
 router.get('/product/:id', async (req, res) => {
   try {
-<<<<<<< HEAD
     const ProductData = await Product.findByPk(req.params.id, {
       include: [Product]
         //{ model: Product, attributes: ['name', 'description', 'image', 'price'],include: {model: Review, attributes: ['content', 'date_created']},
         
-=======
-    const productData = await Product.findByPk(req.params.id, {
-      include: [
-        { model: Product, attributes: ['name', 'description', 'image', 'price']},
-        { model: Review, attributes: ['content', 'date_created'],
->>>>>>> main
           // where: {product_id: req.params.id}
        // }
       //],
