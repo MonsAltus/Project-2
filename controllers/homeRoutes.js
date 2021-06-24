@@ -6,10 +6,7 @@ const withAuth = require('../utils/Auth');
 // Get all products for homepage
 router.get('/', async (req, res) => {
   try {
-    const productData = await Product.findAll({
-      include: [Category]
-    //   include: [{ model: Product, attributes: ['id', 'name', 'description', 'image', 'price', 'stock']}]
-    });
+    const productData = await Product.findAll({include: [Category]});
     const categoryData = await Category.findAll()
 
     const products = productData.map((data) => data.get({ plain: true }));
@@ -28,17 +25,16 @@ router.get('/', async (req, res) => {
 // Get products by Category
 router.get('/category/:id', async (req, res) => {
   try {
-    const categoryData = await Category.findByPk(req.params.id, {
-      include: [
-        { model: Category, attributes: ['name', 'description'],
-          include: { model: Product, attributes: ['id', 'name', 'description', 'image', 'price', 'stock']},
-        }
-      ],
-    });
-  
-    const categories = categoryData.get({ plain: true });
+    const productData = await Product.findAll({where: {category_id: req.params.id}});
+    const categoryData = await Category.findByPk(req.params.id);
+    
+    const products = productData.get({ plain: true });
+    const category = categoryData.get({ plain: true });
+    // console.log(category)
+    // console.log(products)
       res.render('category', {
-        categories,
+        products,
+        category,
         logged_in: req.session.logged_in
       });
   } catch (err) {

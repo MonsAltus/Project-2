@@ -1,11 +1,24 @@
 <!-- Loop over each object in the products array -->
-{{#each Products as |product| }}
+
+
+<aside class="col-md-4">
+  <h3>Browse products by category</h3>
+{{#each categories}}
+<a href="/category/{{id}}">{{name}}</a>
+<p>{{description}}</p>
+{{/each}}
+</aside>
+
+{{!-- {{#each products as |product| }}
 <div class="row mb-4 product">
     <div class="col-md-5">
         <p>
           <span for="img" aria-label="Products">💲</span>
+          
+
           <!-- Pass needed_funding value to the helper function -->
           <span class="product-name">{{product.name}}</span>
+          <img src="{{product.image}}">
         </p>
 </div>
 <div class="col-md-7">
@@ -14,4 +27,4 @@
     </p>
 </div>
 </div>
-{{/each}}
+{{/each}} --}}
