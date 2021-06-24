@@ -1,35 +1,26 @@
 const router = require('express').Router();
-const { Cart } = require('../../models/Cart');
-const Product = require('../../models/Product');
+const { Cart, Product, ProductCart } = require('../../models');
 const withAuth = require('../../utils/auth');
 const { route } = require('../homeRoutes');
 
 // Post Product to cart  (require login session)
 
-
-router.post('/add',withAuth,(req,res) => {
-    const user =req.user._id;
-    const products = req.body.products;
-
-    const cart = new Cart({
-        user,
-        products
+// ADD WITHAUTH
+router.post('/add/:id', withAuth, async (req,res) => {
+    // const user = req.session.user_id;
+    // const product = req.body.product;
+    try {
+    const productData = await Product.findOne({ where: { id: req.params.id}})
+    const cartData = await Cart.findOne({ where: { user_id: req.session.user_id}})
+    // TESTING const cartData = await Cart.findOne({ where: { user_id: 12}})
+    const productCartData = await ProductCart.create({ product_id: productData.id, cart_id: cartData.id})
+      res.status(200).json({
+        success: true,
+        cartId: cartData.id
       });
-
-      cart.save((err, data) => {
-        if (err) {
-          return res.status(400).json({
-            error: 'Your request could not be processed. Please try again.'
-          });
-        }
-
-        decreaseQuantity(products);
-
-    res.status(200).json({
-      success: true,
-      cartId: data.id
-    });
-  });
+    } catch (err) {
+      res.status(400).json(err);
+    };
 });
 
 
