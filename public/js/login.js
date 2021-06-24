@@ -3,7 +3,7 @@ const loginFormHandler = async (event) => {
 
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
-
+    console.log(email, password)
     if (email && password) {
         // If both fields have data use login api route.
         const response = await fetch('/api/users/login', {
@@ -15,7 +15,8 @@ const loginFormHandler = async (event) => {
             // If successful, redirect to homepage.
             document.location.replace('/');
         } else {
-            alert(response.statusText);
+            console.log(response.statusText)
+            // alert(response.statusText);
         }
     }
 };
