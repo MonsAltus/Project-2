@@ -7,6 +7,7 @@ const withAuth = require('../utils/Auth');
 router.get('/', async (req, res) => {
   try {
     const productData = await Product.findAll({
+      include: [Category]
     //   include: [{ model: Product, attributes: ['id', 'name', 'description', 'image', 'price', 'stock']}]
     });
     const categoryData = await Category.findAll()
