@@ -7,17 +7,17 @@ const withAuth = require('../utils/Auth');
 router.get('/', async (req, res) => {
   try {
     const productData = await Product.findAll({
-      include: [ Category
-        // { model: Category, attributes: ['name', 'description'],
-        //   include: { model: Product, attributes: ['name', 'description', 'image', 'price']},
-        // }
-      ],
+      include: [Category]
+    //   include: [{ model: Product, attributes: ['id', 'name', 'description', 'image', 'price', 'stock']}]
     });
+    const categoryData = await Category.findAll()
 
     const products = productData.map((data) => data.get({ plain: true }));
-
+    const categories = categoryData.map((data) => data.get({ plain: true }));
+    // console.log(categories)
       res.render('homepage', { 
-        products, 
+        products,
+        categories,
         logged_in: req.session.logged_in 
       });
   } catch (err) {
@@ -31,7 +31,7 @@ router.get('/category/:id', async (req, res) => {
     const categoryData = await Category.findByPk(req.params.id, {
       include: [
         { model: Category, attributes: ['name', 'description'],
-          include: { model: Product, attributes: ['name', 'description', 'image', 'price']},
+          include: { model: Product, attributes: ['id', 'name', 'description', 'image', 'price', 'stock']},
         }
       ],
     });
@@ -51,7 +51,7 @@ router.get('/product/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
       include: [
-        { model: Product, attributes: ['name', 'description', 'image', 'price'],
+        { model: Product, attributes: ['id', 'name', 'description', 'image', 'price', 'stock'],
           include: { model: Review, attributes: ['content', 'date_created']},
         }
       ],
