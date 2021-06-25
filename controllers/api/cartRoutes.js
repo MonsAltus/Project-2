@@ -23,16 +23,8 @@ router.post('/add/:id', withAuth, async (req,res) => {
     };
 });
 
-
-
-
-
-
-// Post Product to cart  (require login session)
-
-
-
 // Put update Product Quantity by id  (require login session)
+// Build as helper script instead?
 
 // Delete Product by id  (require login session)
 
