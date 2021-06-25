@@ -30,7 +30,7 @@ router.get('/category/:id', async (req, res) => {
 
 
     // const products = productData.get({ plain: true });
-    // const category = categoryData.get({ plain: true });
+    const category = categoryData.get({ plain: true });
     const products = productData.map((data) => data.get({ plain: true }));
     // const category = categoryData.map((data) => data.get({ plain: true }));
     // console.log(category)
@@ -41,6 +41,7 @@ router.get('/category/:id', async (req, res) => {
         logged_in: req.session.logged_in
       });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -51,14 +52,14 @@ router.get('/product/:id', async (req, res) => {
     const productData = await Product.findByPk(req.params.id);
     const reviewData = await Review.findAll({where: {product_id: req.params.id}});
 
-    // const products = productData.get({ plain: true });
+    const product = productData.get({ plain: true });
     // const review = reviewData.get({ plain: true});
-    const products = productData.map((data) => data.get({ plain: true }));
+    // const products = productData.map((data) => data.get({ plain: true }));
     const review = reviewData.map((data) => data.get({ plain: true }));
-    console.log(products)
+    console.log(product)
     console.log(reviewData)
       res.render('product', {
-        products,
+        product,
         review,
         logged_in: req.session.logged_in
       });
