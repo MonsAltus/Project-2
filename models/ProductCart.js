@@ -23,6 +23,11 @@ ProductCart.init(
         key: 'id',
       },
     },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
   },
   {
     sequelize,
