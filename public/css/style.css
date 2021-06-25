@@ -1,3 +1,36 @@
+.category-title{
+    background-color: cadetblue;
+    align-items: flex-end;
+    text-align:right;
+    max-width: fit-content;
+}
+.signup,.Login{
+    color:blue;
+}
+
+form > div {
+    margin-bottom: 2%;
+  }
+  .block {
+    margin-bottom: 4em;
+    margin-top: 2em;
+    display:inline-block;
+    color:purple;
+    
+}
+.btn{
+    background-color:seagreen;
+    border: 0;
+    padding: 1%;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    
+
+}
+
+
+
 /* :root {
     --primary: ;
     --secondary: ;
