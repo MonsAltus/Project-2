@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --primary: ;
     --secondary: ;
     --tertiary: ;
@@ -16,7 +16,7 @@ body, html {
     min-height: 100vh;
     justify-content: flex-start;
     background-color: var(--quatrinary);
-}
+} */
 
 /* a {
     text-decoration: none;
