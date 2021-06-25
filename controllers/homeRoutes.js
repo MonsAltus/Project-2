@@ -27,11 +27,14 @@ router.get('/category/:id', async (req, res) => {
   try {
     const productData = await Product.findAll({where: {category_id: req.params.id}});
     const categoryData = await Category.findByPk(req.params.id);
-    
-    const products = productData.get({ plain: true });
-    const category = categoryData.get({ plain: true });
+
+
+    // const products = productData.get({ plain: true });
+    // const category = categoryData.get({ plain: true });
+    const products = productData.map((data) => data.get({ plain: true }));
+    const category = categoryData.map((data) => data.get({ plain: true }));
     // console.log(category)
-    // console.log(products)
+    console.log(products)
       res.render('category', {
         products,
         category,
@@ -45,17 +48,18 @@ router.get('/category/:id', async (req, res) => {
 // Get product by ID
 router.get('/product/:id', async (req, res) => {
   try {
-    const productData = await Product.findByPk(req.params.id, {
-      include: [
-        { model: Product, attributes: ['id', 'name', 'description', 'image', 'price', 'stock'],
-          include: { model: Review, attributes: ['content', 'date_created']},
-        }
-      ],
-    });
-  
-    const products = productData.get({ plain: true });
+    const productData = await Product.findByPk(req.params.id);
+    const reviewData = await Review.findAll({where: {user_id: req.params.id}});
+
+    // const products = productData.get({ plain: true });
+    // const review = reviewData.get({ plain: true});
+    const products = productData.map((data) => data.get({ plain: true }));
+    const review = reviewData.map((data) => data.get({ plain: true }));
+    console.log(products)
+    console.log(reviewData)
       res.render('product', {
         products,
+        review,
         logged_in: req.session.logged_in
       });
   } catch (err) {
