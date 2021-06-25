@@ -1,12 +1,16 @@
 <!-- Loop over each object in the products array -->
 
 
-<aside class="container has-text-center">
-  <h3 class="is-size-4 ">Browse products by category</h3>
-{{#each categories}}
-<a class="is-size-5" href="/category/{{id}}">{{name}}</a>
-<p class="is-size-6">{{description}}</p>
-{{/each}}
+<aside class="container">
+  <div class="category-title">
+    <h3 class="is-size-4 has-text-black has-border-px-2 px-3 py-3 has-text-weight-bold ">Browse products by category</h3>
+  </div>
+  {{#each categories}}
+  <div class="block ">
+    <a class="is-size-5" href="/category/{{id}}">{{name}}</a>
+    <p class="is-size-6">{{description}}</p>
+    {{/each}}
+  </div>
 </aside>
 
 {{!-- {{#each products as |product| }}
