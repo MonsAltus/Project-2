@@ -1,6 +1,19 @@
+{{!-- This template will display data for a specific product --}}
+
+
 <div class="text-center">
-  <h2>{{Product_name}}</h2>
-  <p>{{description}}</p>
+  <h2>{{product.name}} - ${{product.price}}</h2>
+  {{!-- still need to make imgaes work --}}
+  <img src="../{{product.image}}">
+  <p>{{product.description}}</p>
+</div>
+
+{{#each review}}
+<h4>{{date_created}}</h4>
+<p>{{content}}</p>
+{{!-- display user by id? --}}
+{{/each}}
+{{!-- <div>
   
   <p>
     <span for="img" aria-label="Product_name">💲</span>
@@ -10,4 +23,4 @@
   <p>
     <button class="btn btn-primary">Add to cart</button>
   </p>
-</div>
+</div> --}}
