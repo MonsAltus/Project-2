@@ -49,7 +49,7 @@ router.get('/category/:id', async (req, res) => {
 router.get('/product/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id);
-    const reviewData = await Review.findAll({where: {user_id: req.session.user_id}});
+    const reviewData = await Review.findAll({where: {product_id: req.params.id}});
 
     // const products = productData.get({ plain: true });
     // const review = reviewData.get({ plain: true});
