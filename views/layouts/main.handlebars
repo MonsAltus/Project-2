@@ -15,19 +15,19 @@
       <h1 class="py-4 is-size-1 has-text-weight-bold has-text-left has-background-link-dark">
         <a class="has-text-black" href="/">Welcome to the Tech EStore</a>
       </h1>
-      <nav class="py-2 is-size-4 has-text-link-dark has-text-right has-background-link-light">
+      <nav class="py-2 is-size-3 has-text-link-dark has-text-right has-background-link-light">
         {{!-- add a homepage, product, category, and cart nav --}}
         | <a href="/">Homepage</a> |
-        {{!-- <a href="/profile">Profile</a> | --}}
+        <a href="/profile">Profile</a> |
         <a href="/cart">Cart</a> |
         {{#if logged_in}}
-        <a href="/logout">Logout</a>
+        <button class="no-button is-size-3 has-text-link-dark" id="logout"><a>Logout</a></button>
         {{else}}
         <a href="/login">Login</a> |
         {{/if}}
       </nav>
     </header>
-    <main class="section">
+    <main class="section mt-5 ml-5 mr-5 mb-5">
       <div class="container">
         {{{ body }}}
       </div>
