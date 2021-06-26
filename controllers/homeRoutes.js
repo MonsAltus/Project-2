@@ -1,22 +1,23 @@
 const router = require('express').Router();
-const { User, Cart, Category, Product, Review, ProductCart } = require('../models');
+const { User, Cart, Category, Product, Review } = require('../models');
 
-const withAuth = require('../utils/Auth');
+const withAuth = require('../utils/auth');
 
 // Get all products for homepage
 router.get('/', async (req, res) => {
   try {
-    // Find all products
-    const productData = await Product.findAll({include: [Category]});
-    // Find all categories
-    const categoryData = await Category.findAll()
+    const productData = await Product.findAll({
+      include: [ Category
+        // { model: Category, attributes: ['name', 'description'],
+        //   include: { model: Product, attributes: ['name', 'description', 'image', 'price']},
+        // }
+      ],
+    });
 
     const products = productData.map((data) => data.get({ plain: true }));
-    const categories = categoryData.map((data) => data.get({ plain: true }));
-    // console.log(categories)
+
       res.render('homepage', { 
-        products,
-        categories,
+        products, 
         logged_in: req.session.logged_in 
       });
   } catch (err) {
@@ -27,16 +28,17 @@ router.get('/', async (req, res) => {
 // Get products by Category
 router.get('/category/:id', async (req, res) => {
   try {
-    // Find all products by category id
-    const productData = await Product.findAll({where: {category_id: req.params.id}});
-    // Find category by id
-    const categoryData = await Category.findByPk(req.params.id);
-
-    const category = categoryData.get({ plain: true });
-    const products = productData.map((data) => data.get({ plain: true }));
+    const categoryData = await Category.findByPk(req.params.id, {
+      include: [
+        { model: Category, attributes: ['name', 'description'],
+          include: { model: Product, attributes: ['name', 'description', 'image', 'price']},
+        }
+      ],
+    });
+  
+    const categories = categoryData.get({ plain: true });
       res.render('category', {
-        products,
-        category,
+        categories,
         logged_in: req.session.logged_in
       });
   } catch (err) {
@@ -47,18 +49,17 @@ router.get('/category/:id', async (req, res) => {
 // Get product by ID
 router.get('/product/:id', async (req, res) => {
   try {
-    // Find product by id
-    const productData = await Product.findByPk(req.params.id);
-    // Find all Reviews for product
-    const reviewData = await Review.findAll({where: {product_id: req.params.id}});
-
-    const product = productData.get({ plain: true });
-    const review = reviewData.map((data) => data.get({ plain: true }));
-    console.log(product)
-    console.log(reviewData)
+    const productData = await Product.findByPk(req.params.id, {
+      include: [
+        { model: Product, attributes: ['name', 'description', 'image', 'price'],
+          include: { model: Review, attributes: ['content', 'date_created']},
+        }
+      ],
+    });
+  
+    const products = productData.get({ plain: true });
       res.render('product', {
-        product,
-        review,
+        products,
         logged_in: req.session.logged_in
       });
   } catch (err) {
@@ -70,27 +71,14 @@ router.get('/product/:id', async (req, res) => {
 // Get cart (require login session)
 router.get('/cart', withAuth, async (req, res) => {
   try {
-    // Find user's cart by user_id
     const cartData = await Cart.findOne({where: {user_id: req.session.user_id}}, {
       include: [Cart] 
+      // Attributes???
     });
 
-    // Find all productCart objects where cart_id matches user's cart.
-    const productCartData = await ProductCart.findAll({ where: {cart_id: cart.id}});
-
-    // const productCartData = await ProductCart.findAll({ where: {cart_id: cart.id}}, {include: [Product] {where: {id: productCart.product_id}} } );
-    // const productCartData = await ProductCart.findAll({ include: [Product] { where: {id: productCart.product_id}}}, { where: {cart_id: cart.id}})
-
-// Find all products from all productCart objects by product_id
-
     const cart = cartData.get({ plain: true });
-    const productCart = productCartData.map((data) => data.get({ plain: true }));
-    // const product = productData.map((data) => data.get({ plain: true }));
-    // console.log(cart)
       res.render('cart', {
         cart,
-        productCarts,
-        // product,
         logged_in: true
       });
   } catch (err) {
