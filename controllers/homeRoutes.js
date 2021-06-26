@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Cart, Category, Product, Review, ProductCart } = require('../models');
 
-const withAuth = require('../utils/Auth');
+const withAuth = require('../utils/auth');
 
 // Get all products for homepage
 router.get('/', async (req, res) => {
