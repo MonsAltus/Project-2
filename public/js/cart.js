@@ -1,32 +1,5 @@
-// Create
-// Add to quantity
-// reduce quantity
-// delete ProductCart
 
-
-// POST Create ProductCart Object
-const createCartHandler = async (event) => {
-    event.preventDefault();
-    // Get product id though html attribute.
-    const productId = event.target.getAttribute('product-id');
-
-    try{
-        if (productId) {
-            const response = await fetch('/api/carts/add/'+productId, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-            });
-            
-            if (response.ok) {
-                document.location.replace(`/product/${productId}`);
-            }
-        }
-    } catch (err) {
-        console.log(err)
-    }
-};
-
-// PUT increase quantity
+// PUT increase quantity in ProductCart
 const incrementHandler = async (event) => {
     event.preventDefault();
     // Get product id though html attribute.
@@ -48,7 +21,7 @@ const incrementHandler = async (event) => {
     }
 };
 
-// PUT decrease quantity
+// PUT decrease quantity in ProductCart
 const decrementHandler = async (event) => {
     event.preventDefault();
     // Get product id though html attribute.
@@ -105,7 +78,3 @@ document
 document
     .querySelector('#checkout')
     .addEventListener('click', deleteCartHandler);
-
-    document
-    .querySelector('#addCart')
-    .addEventListener('click', createCartHandler);

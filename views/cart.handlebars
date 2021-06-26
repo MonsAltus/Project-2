@@ -1,9 +1,17 @@
 {{!-- this template displays items in the users cart --}}
 
+{{#each productCarts as | productCart |}}
 
-<button product-id="{{id}}" id="increment">Add Quantity</button>
-<button product-id="{{id}}" id="decrement">Lower Quantity</button>
+
+<div class="product-quantity">
+    <p>{{productCart.quantity}}</p>
+    <button product-id="{{id}}" id="increment">Add Quantity</button>
+    <button product-id="{{id}}" id="decrement">Lower Quantity</button>
+</div>
+{{/each}}
+
+
 
 <button product-id="{{id}}" id="#checkout">Check Out</button>
 
-<script src="/js/updateCart.js"></script>
+<script src="/js/cart.js"></script>
