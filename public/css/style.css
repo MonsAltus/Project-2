@@ -29,7 +29,16 @@ form > div {
 
 }
 
+.no-button {
+    border: none;
+    padding: 0;
+    background: none;
+}
 
+.no-button:hover {
+    color: black;
+    cursor: pointer;
+}
 
 /* :root {
     --primary: ;
