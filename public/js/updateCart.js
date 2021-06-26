@@ -1,11 +1,17 @@
-const newReviewHandler = async (event) => {
+// Create
+// Add to quantity
+// reduce quantity
+// delete ProductCart
+
+incrementHandler()
+
+
+const decrementHandler = async (event) => {
     event.preventDefault();
 
-    // Queries new review data from form.
-    const review = document.querySelector('#newReview-text').value.trim();
-    // get's current product id from product page.
-    // add `product-id="{{id}}" type="submit"` in tags for review submit button in the product.handlebars view.
+    // GET PRODUCT ID THROUGH HTML DATA TAG
     const productId = event.target.getAttribute('product-id');
+
     try{
         if (review) {
             const response = await fetch('/api/reviews/', {
@@ -25,6 +31,21 @@ const newReviewHandler = async (event) => {
     }
 };
 
+// Delete
+const deleteCartHandler = async
+
 document
-    .querySelector('.addReview-form')
-    .addEventListener('click', newReviewHandler);
+    .querySelector('#increment')
+    .addEventListener('click', incrementHandler);
+
+document
+    .querySelector('#decrement')
+    .addEventListener('click', decrementHandler);
+
+document
+    .querySelector('#checkout')
+    .addEventListener('click', deleteCartHandler);
+
+    document
+    .querySelector('#addCart')
+    .addEventListener('click', addCartHandler);
