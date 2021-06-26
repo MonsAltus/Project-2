@@ -6,11 +6,12 @@
 
 <div>
 {{#each products}}
+<a href="/product/{{id}}">
 <img src="{{image}}">
 <h4>{{name}} - ${{price}}</h4>
 <p>{{description}}</p>
+</a>
 {{/each}}
-</div>
 
 
 {{!--
