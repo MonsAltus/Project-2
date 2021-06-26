@@ -66,7 +66,7 @@
     {
         "name": "1TB External HDD",
         "description": "An external hard disk with a 1TB capacity.",
-        "image": "/images/1tb-external-hub.jpg",
+        "image": "/images/1tb-external-hdd.jpg",
         "price": 150,
         "stock": 10,
         "category_id": 6
