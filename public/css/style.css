@@ -1,11 +1,11 @@
 .category-title{
-    background-color: cadetblue;
+    background-color: #3850b7;
     align-items: flex-end;
     text-align:right;
     max-width: fit-content;
 }
 .signup,.Login{
-    color:blue;
+    color:#3850b7;
 }
 
 form > div {
@@ -19,7 +19,7 @@ form > div {
     
 }
 .btn{
-    background-color:seagreen;
+    background-color:#e2e9f8;
     border: 0;
     padding: 1%;
     font-weight: bold;

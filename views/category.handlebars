@@ -1,15 +1,15 @@
 {{!-- This template should display all products on a given category --}}
 
 
-<h2>{{category.name}}</h2>
+<h2 class="is-size-3 has-text-weight-bold has-text-black">{{category.name}}</h2>
 <p>{{description}}</p>
 
 <div>
 {{#each products}}
 <a href="/product/{{id}}">
-<img src="{{image}}">
-<h4>{{name}} - ${{price}}</h4>
-<p>{{description}}</p>
+<img class="" src="{{image}}">
+<h4 class="is-size-4">{{name}} - ${{price}}</h4>
+<p class="is-size-5">{{description}}</p>
 </a>
 {{/each}}
 
