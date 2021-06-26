@@ -3,27 +3,22 @@
 // reduce quantity
 // delete ProductCart
 
-incrementHandler()
 
-
-const decrementHandler = async (event) => {
+// POST Create ProductCart Object
+const createCartHandler = async (event) => {
     event.preventDefault();
-
-    // GET PRODUCT ID THROUGH HTML DATA TAG
+    // Get product id though html attribute.
     const productId = event.target.getAttribute('product-id');
 
     try{
-        if (review) {
-            const response = await fetch('/api/reviews/', {
+        if (productId) {
+            const response = await fetch('/api/carts/add/'+productId, {
                 method: 'POST',
-                body: JSON.stringify({ review, productId }),
                 headers: { 'Content-Type': 'application/json' },
             });
-
+            
             if (response.ok) {
                 document.location.replace(`/product/${productId}`);
-            } else {
-                alert('Failed to post review');
             }
         }
     } catch (err) {
@@ -31,8 +26,73 @@ const decrementHandler = async (event) => {
     }
 };
 
-// Delete
-const deleteCartHandler = async
+// PUT increase quantity
+const incrementHandler = async (event) => {
+    event.preventDefault();
+    // Get product id though html attribute.
+    const productId = event.target.getAttribute('product-id');
+
+    try{
+        if (productId) {
+            const response = await fetch('/api/carts/add/'+productId, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (response.ok) {
+                document.location.replace(`/cart/`);
+            }
+        }
+    } catch (err) {
+        console.log(err)
+    }
+};
+
+// PUT decrease quantity
+const decrementHandler = async (event) => {
+    event.preventDefault();
+    // Get product id though html attribute.
+    const productId = event.target.getAttribute('product-id');
+
+    try{
+        if (productId) {
+            const response = await fetch('/api/carts/remove/'+productId, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            // Should redirect to homepage after completion?
+            // if (response.ok) {
+            //     document.location.replace(`/homepage/`);
+            // }
+
+        }
+    } catch (err) {
+        console.log(err)
+    }
+};
+
+// Delete ProductCart after Checkout
+const deleteCartHandler = async (event) => {
+    event.preventDefault();
+    // Get product id though html attribute.
+    const productId = event.target.getAttribute('product-id');
+
+    try{
+        if (productId) {
+            const response = await fetch('/api/carts/remove/'+productId, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (response.ok) {
+                document.location.replace(`/cart/`);
+            }
+        }
+    } catch (err) {
+        console.log(err)
+    }
+};
 
 document
     .querySelector('#increment')
@@ -48,4 +108,4 @@ document
 
     document
     .querySelector('#addCart')
-    .addEventListener('click', addCartHandler);
+    .addEventListener('click', createCartHandler);

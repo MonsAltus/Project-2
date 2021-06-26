@@ -18,6 +18,7 @@ const newReviewHandler = async (event) => {
                 document.location.replace(`/product/${productId}`);
             } else {
                 alert('Failed to post review');
+                return;
             }
         }
     } catch (err) {
