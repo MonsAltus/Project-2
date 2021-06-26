@@ -10,9 +10,5 @@ if(process.env.JAWSDB_URL) {
       dialect: 'mysql',
       port: 3306
     });
-<<<<<<< HEAD
-}
-=======
 }
 module.exports = sequelize;
->>>>>>> main
