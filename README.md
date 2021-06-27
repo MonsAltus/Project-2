@@ -15,6 +15,9 @@ This page allows you to view a selection of electronic products sorted by catego
 [Contact](#Contact)<br>
 [License](#License)<br>
 
+## Heroku Deployment
+https://lit-crag-72234.herokuapp.com/ 
+
 ## User Story:
 - AS A consumer
 - I WANT visit one web site
@@ -23,12 +26,12 @@ This page allows you to view a selection of electronic products sorted by catego
 ## Acceptance Criteria
 Acceptance Criteria
 
-Given a E-commerce website to shop Electronic Devices
-When I visit the site for the first time
-Then I am presented with the homepage with all the categories of Electronic Devices available and an option to login.
-When I login, then I can select a category and look at all the products available for the category
-When I select a product, I can see the reviews and option to add it to cart.
-When I go to the cart, I can add or remove Products and place the order.
+- Given a E-commerce website to shop Electronic Devices
+- When I visit the site for the first time
+- Then I am presented with the homepage with all the categories of Electronic Devices   available and an option to login.
+- When I login, then I can select a category and look at all the products available for the category
+- When I select a product, I can see the reviews and option to add it t-o cart.
+- When I go to the cart, I can add or remove Products and place the order.
 
 
 ## Installation:
